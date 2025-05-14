@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react'
 import type { Movie } from '../types'
 import { mockMovies } from '../movies'
 import { fetchMovies } from '../api/get-movies'
