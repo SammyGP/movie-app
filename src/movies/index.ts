@@ -2,26 +2,27 @@ import type { Movie } from '../types'
 
 export const mockMovies: Movie[] = [
   {
-    imdbId: 'tt0111161',
+    imdbId: '1',
     title: 'The Shawshank Redemption',
     year: '1994',
     poster:
-      'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmRhMC00ZDI2LWFmNTEtODM1ZGRkNzY3ZTlkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
+      'https://images.unsplash.com/photo-1746249485303-d03ce345878d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     type: 'movie',
   },
   {
-    imdbId: 'tt0068646',
+    imdbId: '2',
     title: 'The Godfather',
     year: '1972',
     poster:
-      'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmYtYTAwZi00ZjQ5LWFmNTEtODM1ZGRkNzY3ZTlkXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg',
+      'https://images.unsplash.com/photo-1746249485303-d03ce345878d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     type: 'movie',
   },
   {
-    imdbId: 'tt1375666',
+    imdbId: '3',
     title: 'Inception',
     year: '2010',
-    poster: 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxMF5BMl5BanBnXkFtZTcwODI5OTM0Mw@@._V1_SX300.jpg',
+    poster:
+      'https://images.unsplash.com/photo-1746249485303-d03ce345878d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     type: 'movie',
   },
 ]
