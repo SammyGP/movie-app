@@ -1,4 +1,4 @@
-import { Card } from 'antd'
+import { Card, Rate, Typography } from 'antd'
 import { HeartOutlined, HeartFilled } from '@ant-design/icons'
 import type { Movie } from '../types'
 import { useMovieContext } from '../context/movie-context'
@@ -20,8 +20,6 @@ const MovieCard = ({ movie }: Props) => {
       addToFavorites(movie.imdbId)
     }
   }
-
-  console.log('movie', movie)
 
   return (
     <Card
@@ -48,7 +46,20 @@ const MovieCard = ({ movie }: Props) => {
         ),
       ]}
     >
-      <Meta title={<Link to={`/movies/${movie.imdbId}`}>{movie.title}</Link>} description={`${movie.year} • ${movie.type}`} />
+      <Meta
+        title={<Link to={`/movies/${movie.imdbId}`}>{movie.title}</Link>}
+        description={
+          <>
+            <div>{`${movie.year} • ${movie.type}`}</div>
+            <div style={{ marginTop: 4 }}>
+              <Rate disabled allowHalf value={parseFloat(movie.rating) / 2} />
+              <Typography.Text type='secondary' style={{ marginLeft: 8 }}>
+                {movie.rating}/10
+              </Typography.Text>
+            </div>
+          </>
+        }
+      />{' '}
     </Card>
   )
 }

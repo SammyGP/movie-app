@@ -3,19 +3,12 @@ import type { Movie } from '../types'
 import { mockMovies } from '../movies'
 import { fetchMovies } from '../api/get-movies'
 
-interface MovieContextType {
-  movies: Movie[]
-  favorites: string[]
-  addToFavorites: (id: string) => void
-  removeFromFavorites: (id: string) => void
-  isFavorite: (id: string) => boolean
-}
-
 const MovieContext = createContext<MovieContextType | undefined>(undefined)
 
 export const MovieProvider = ({ children }: { children: ReactNode }) => {
   const [movies, setMovies] = useState<Movie[]>(mockMovies)
   const [favorites, setFavorites] = useState<string[]>([])
+  const [searchTerm, setSearchTerm] = useState('')
 
   // handles fetching the movies
   useEffect(() => {
@@ -51,8 +44,20 @@ export const MovieProvider = ({ children }: { children: ReactNode }) => {
 
   const isFavorite = (id: string) => favorites.includes(id)
 
+  const filteredMovies = movies.filter((m) => m.title.toLowerCase().includes(searchTerm.toLowerCase()))
+
   return (
-    <MovieContext.Provider value={{ movies, favorites, addToFavorites, removeFromFavorites, isFavorite }}>
+    <MovieContext.Provider
+      value={{
+        movies,
+        filteredMovies,
+        favorites,
+        addToFavorites,
+        removeFromFavorites,
+        isFavorite,
+        setSearchTerm,
+      }}
+    >
       {children}
     </MovieContext.Provider>
   )
@@ -64,4 +69,14 @@ export const useMovieContext = () => {
     throw new Error('useMovieContext must be used within a MovieProvider')
   }
   return context
+}
+
+interface MovieContextType {
+  movies: Movie[]
+  filteredMovies: Movie[]
+  favorites: string[]
+  addToFavorites: (id: string) => void
+  removeFromFavorites: (id: string) => void
+  isFavorite: (id: string) => boolean
+  setSearchTerm: (term: string) => void
 }
